@@ -20,29 +20,14 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- 左寄せ -->
-        <ul class="navbar-nav mr-auto">
+        <!-- 右寄せ -->
+        <ul class="navbar-nav ml-auto">
           {% if user.is_authenticated %}
           <li>
             <a class="nav-item nav-link" href="{% url 'app:user_detail' user.pk %}">プロフィール</a>
           </li>
           <li>
-            <a class="nav-item nav-link" href="{% url 'app:user_update' user.pk %}">プロフィール更新</a>
-          </li>
-        </ul>
-        <!-- 右寄せ -->
-        <ul class="navbar-nav">
-          <li>
             <a class="nav-item nav-link" href="{% url 'app:logout' %}">ログアウト</a>
-          </li>
-          <li>
-            <a class="nav-item nav-link" href="{% url 'app:password_change' %}">パスワード変更</a>
-          </li>
-          <li>
-            <a class="nav-item nav-link" href="{% url 'app:email_change' %}">メールアドレスの変更</a>
-          </li>
-          <li>
-            <a class="nav-item nav-link" href="{% url 'app:user_delete' user.pk %}">退会</a>
           </li>
           {% else %}
           <li class="nav-item">

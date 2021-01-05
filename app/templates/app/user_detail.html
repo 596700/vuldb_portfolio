@@ -20,4 +20,12 @@
         </tr>
     </tbody>
 </table>
+<div class="container mt-3">
+    <ul>
+        <li><a href="{% url 'app:user_update' user.pk %}">プロフィール更新</a></li>
+        <li><a href="{% url 'app:email_change' %}">メールアドレスの変更</a></li>
+        <li><a href="{% url 'app:password_change' %}">パスワード変更</a></li>
+        <li><a href="{% url 'app:user_delete' user.pk %}">退会</a></li>
+    </ul>
+</div>
 {% endblock %}
