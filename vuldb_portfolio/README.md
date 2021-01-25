@@ -3,4 +3,4 @@ portfolio created by django.
 
 Python                 3.8.2
 Django                 2.2.17
-django-environ         0.4.5
+gunicorn               20.0.4 
