@@ -1,0 +1,9 @@
+{% extends "app/base.html" %}
+{% block title %} ユーザー退会 {% endblock %}
+{% block content %}
+<form action="" method="POST">
+    <p>{{ user.username }}さん、退会しますか？</p>
+    <button type="submit" class="btn btn-danger btn-lg" onclick="return confirm('{{ user.username }}さん、本当に退会しますか？');">退会</button>
+    {% csrf_token %}
+</form>
+{% endblock %}

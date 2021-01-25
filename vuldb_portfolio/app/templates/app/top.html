@@ -1,0 +1,76 @@
+{% extends "app/base.html" %}
+{% block title %} トップページ {% endblock %}
+{% block content %}
+<h5>最近登録されたアプリ</h5>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>アプリ名</th>
+      <th>ベンダURL</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for app in app_name %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td><a href="{% url 'app:app_detail' app.pk %}">{{ app.name }}</a></td>
+      <td><a href="{{ app.url }}">{{ app.url }}</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<h5>最近登録されたバージョン</h5>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>バージョン</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for ver in version %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td><a href="{% url 'app:version_detail' ver.pk %}">{{ ver.version }}</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<h5>最近登録されたアプリ/バージョン</h5>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>アプリ/バージョン</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for app_v in app_version %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td><a href="{% url 'app:app_version_detail' app_v.pk %}">{{ app_v.name.name }}/{{ app_v.version.version }}</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<h5>最近登録されたCVE</h5>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>CVE ID</th>
+      <th>概要</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for vul in vulnerability %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td><a href="{% url 'app:vul_detail' vul.pk %}">{{ vul.cve_id }}</a></td>
+      <td>{{ vul.overview | truncatechars:100 }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "app/base.html" %}
+{% block title %} {{ user.username }}のユーザー情報 {% endblock %}
+{% block content %}
+<div class="float-right">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'app:user_update' user.pk %}">プロフィール変更</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'app:email_change' %}">メールアドレス変更</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'app:password_change' %}">パスワード変更</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'app:user_delete' user.pk %}">退会</a></li>
+    </ol>
+</div>
+<table class="table">
+    <tbody>
+        <tr>
+            <th>メールアドレス</th>
+            <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+            <th>ユーザー名</th>
+            <td>{{ user.username }}</td>
+        </tr>
+        <tr>
+            <th>姓</th>
+            <td>{{ user.last_name }}</td>
+        </tr>
+        <tr>
+            <th>名</th>
+            <td>{{ user.first_name }}</td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

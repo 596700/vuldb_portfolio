@@ -1,0 +1,23 @@
+{% extends "app/base.html" %}
+{% block title %} バージョン{{ object.version }}の詳細 {% endblock %}
+{% block content %}
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>バージョン</th>
+            <th>編集</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ object.version }}</td>
+            <td>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a href="{% url 'app:version_update' object.pk %}" class="btn btn-warning">修正</a>
+                    <a href="{% url 'app:version_delete' object.pk %}" class="btn btn-danger">削除</a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

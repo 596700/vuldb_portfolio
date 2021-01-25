@@ -1,0 +1,20 @@
+{% extends "app/base.html" %}
+{% block title %} 新規アプリ/バージョン登録 {% endblock %}
+{% block content %}
+<div class="text-right">
+    <a href="{% url 'app:app_create'%}" class="btn btn-outline-primary">アプリ新規登録</a>
+    <a href="{% url 'app:version_create'%}" class="btn btn-outline-primary">バージョン新規登録</a>
+</div>
+<form action="" method="POST">
+    {{ form.non_field_errors }}
+    {% for field in form %}
+    <div class="form-group">
+        <label for="{{ field.id_for_label }}">{{ field.label_tag }}</label>
+        {{ field }}
+        {{ field.errors }}
+    </div>
+    {% endfor %}
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary btn-lg">登録</button>
+</form>
+{% endblock %}

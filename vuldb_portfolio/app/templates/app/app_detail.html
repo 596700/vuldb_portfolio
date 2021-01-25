@@ -1,0 +1,25 @@
+{% extends "app/base.html" %}
+{% block title %} アプリ{{ object.name }}の詳細 {% endblock %}
+{% block content %}
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>アプリ名</th>
+            <th>ベンダURL</th>
+            <th>編集</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ object.name }}</td>
+            <td><a href="{{ object.url }}">{{ object.url }}</a></td>
+            <td>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a href="{% url 'app:app_update' object.pk %}" class="btn btn-warning">修正</a>
+                    <a href="{% url 'app:app_delete' object.pk %}" class="btn btn-danger">削除</a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "app/base.html" %}
+{% block title %} アプリ{{ object.name }}の削除 {% endblock %}
+{% block content %}
+<form action="" method="POST">
+    <div class="form-group">
+        <h1>アプリ<a href="{% url 'app:app_detail' object.pk %}">{{ object.name }}</a>を削除しますか？</h1>
+    </div>
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger btn-lg" onclick="return confirm('本当に{{ object.name }}を削除しますか？');">削除</button>
+</form>
+{% endblock %}
